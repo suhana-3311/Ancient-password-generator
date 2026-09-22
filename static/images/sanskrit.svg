@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 380">
+<rect x="45" y="40" width="530" height="300" rx="24" fill="#f8f1df" stroke="#8f6b30" stroke-width="3"/>
+<text x="310" y="125" text-anchor="middle" font-size="72" font-family="Georgia" fill="#8f6b30">अग्नि</text>
+<text x="310" y="180" text-anchor="middle" font-size="22" font-family="Arial" fill="#5b5142">AGNI • FIRE</text>
+<path d="M145 235h330M185 270h250" stroke="#b69a67" stroke-width="4" stroke-linecap="round"/>
+<circle cx="310" cy="310" r="18" fill="#d6a84f"/>
+</svg>

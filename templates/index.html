@@ -1,0 +1,235 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ancient Knowledge Password Generator</title>
+  <meta name="description" content="Educational Python web application combining Sanskrit-inspired inputs, Katapayadi, Bhuta Sankhya and secure randomization.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#top"><span class="brand-mark">ॐ</span> AKI • Secure Generator</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+    <div id="nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#concept">Concept</a></li>
+        <li class="nav-item"><a class="nav-link" href="#systems">Knowledge Systems</a></li>
+        <li class="nav-item"><a class="nav-link" href="#generator">Generator</a></li>
+        <li class="nav-item"><a class="nav-link" href="#security">Security</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header id="top" class="hero-section">
+  <div class="container position-relative">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7 reveal">
+        <div class="eyebrow">• AIKS PROJECT</div>
+        <h1>Ancient Knowledge.<br><span>Modern Password Security.</span></h1>
+        <p class="hero-copy">An educational password generator inspired by Sanskrit words, Katapayadi and Bhuta Sankhya — combined with cryptographically secure randomization.</p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a class="btn btn-gold btn-lg" href="#generator">Try Generator <i class="bi bi-arrow-down"></i></a>
+          <a class="btn btn-outline-light btn-lg" href="#concept">Understand Project</a>
+        </div>
+        <div class="hero-stats mt-5">
+          <div><strong>01</strong><small>Sanskrit Input</small></div>
+          <div><strong>02</strong><small>Ancient Number Systems</small></div>
+          <div><strong>03</strong><small>Secure Randomization</small></div>
+        </div>
+      </div>
+      <div class="col-lg-5 reveal delay-1">
+        <div class="hero-art floating">
+          <img src="{{ url_for('static', filename='images/hero.svg') }}" alt="Illustration of an ancient manuscript transforming into a digital lock">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-glow"></div>
+</header>
+
+<section id="concept" class="section section-dark">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div class="eyebrow">PROJECT CONCEPT</div>
+      <h2>What the project actually does</h2>
+      <p>The application does not treat ancient systems as a replacement for modern cryptography. They provide meaningful, topic-specific input; secure randomness supplies unpredictability.</p>
+    </div>
+    <div class="row g-4 mt-2">
+      <div class="col-md-6 col-lg-3 reveal"><div class="concept-card"><span>01</span><i class="bi bi-type"></i><h4>Sanskrit Word</h4><p>Select a Sanskrit-inspired word such as <b>Agni</b>, <b>Surya</b> or <b>Vidya</b>.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal delay-1"><div class="concept-card"><span>02</span><i class="bi bi-grid-3x3-gap"></i><h4>Katapayadi</h4><p>Map relevant consonants to digits using the educational transliteration table.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal delay-2"><div class="concept-card"><span>03</span><i class="bi bi-infinity"></i><h4>Bhuta Sankhya</h4><p>Choose a traditional number association such as <b>Vedas → 4</b>.</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal delay-3"><div class="concept-card"><span>04</span><i class="bi bi-shield-lock"></i><h4>Secure Randomness</h4><p>Python's <code>secrets</code> module adds unpredictable characters and symbols.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="systems" class="section parchment">
+  <div class="container">
+    <div class="section-heading dark reveal">
+      <div class="eyebrow">ANCIENT KNOWLEDGE SYSTEMS</div>
+      <h2>Three ideas, one focused application</h2>
+    </div>
+
+    <div class="row align-items-center g-5 mb-5">
+      <div class="col-lg-5 reveal"><img class="topic-image" src="{{ url_for('static', filename='images/sanskrit.svg') }}" alt="Sanskrit word cards illustration"></div>
+      <div class="col-lg-7 reveal delay-1">
+        <span class="number-pill">01</span><h3>Sanskrit Words</h3>
+        <p>Meaningful Sanskrit-inspired words are used as a human-readable starting point. Examples in this application include:</p>
+        <div class="word-cloud">
+          {% for word, meaning in sanskrit_words.items() %}
+          <span class="word-chip"><b>{{ word.title() }}</b> · {{ meaning }}</span>
+          {% endfor %}
+        </div>
+        <div class="callout"><i class="bi bi-lightbulb"></i> A recognizable word is only an input. It is never presented as secure by itself.</div>
+      </div>
+    </div>
+
+    <div class="row align-items-center g-5 mb-5 flex-lg-row-reverse">
+      <div class="col-lg-5 reveal"><img class="topic-image" src="{{ url_for('static', filename='images/katapayadi.svg') }}" alt="Katapayadi numerical mapping illustration"></div>
+      <div class="col-lg-7 reveal">
+        <span class="number-pill">02</span><h3>Katapayadi</h3>
+        <p>Katapayadi is a traditional Indian mnemonic/numerical system in which consonants are associated with digits. This project uses a clearly documented Roman-transliteration demo table.</p>
+        <div class="mapping-table">
+          <div><b>Ka Kha Ga Gha</b><span>1 2 3 4</span></div>
+          <div><b>Cha Chha Ja Jha</b><span>6 7 8 9</span></div>
+          <div><b>Pa Pha Ba Bha Ma</b><span>1 2 3 4 5</span></div>
+          <div><b>Ya Ra La Va</b><span>1 2 3 4</span></div>
+          <div><b>Sha Sa Ha</b><span>5 7 8</span></div>
+        </div>
+        <p class="small-note">The generator ignores vowels for this consonant-to-digit step and reverses the collected digits to demonstrate the traditional right-to-left number reading convention.</p>
+      </div>
+    </div>
+
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5 reveal"><img class="topic-image" src="{{ url_for('static', filename='images/bhuta.svg') }}" alt="Bhuta Sankhya traditional number associations illustration"></div>
+      <div class="col-lg-7 reveal delay-1">
+        <span class="number-pill">03</span><h3>Bhuta Sankhya</h3>
+        <p>Bhuta Sankhya expresses numbers through familiar objects or concepts. The project uses selected examples to create a second traditional numerical input.</p>
+        <div class="bhuta-grid">
+          {% for name, value in bhuta_sankhya.items() %}
+          <div><strong>{{ name }}</strong><span>{{ value }}</span></div>
+          {% endfor %}
+        </div>
+        <div class="callout"><i class="bi bi-info-circle"></i> Traditional associations can vary by source and context. The application therefore displays its selected mappings explicitly instead of hiding them.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section flow-section">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div class="eyebrow">WORKFLOW</div><h2>From ancient input to secure output</h2>
+    </div>
+    <div class="workflow">
+      <div class="flow-node reveal"><b>01</b><span>Sanskrit Word</span></div>
+      <div class="flow-line"></div>
+      <div class="flow-node reveal delay-1"><b>02</b><span>Katapayadi</span></div>
+      <div class="flow-line"></div>
+      <div class="flow-node reveal delay-2"><b>03</b><span>Bhuta Sankhya</span></div>
+      <div class="flow-line"></div>
+      <div class="flow-node reveal delay-3"><b>04</b><span>Secure Randomization</span></div>
+      <div class="flow-line"></div>
+      <div class="flow-node reveal delay-4"><b>05</b><span>Strength Check</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="generator" class="section generator-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+        <div class="generator-shell reveal">
+          <div class="generator-head">
+            <div><div class="eyebrow">LIVE PYTHON DEMO</div><h2>Generate Your Password</h2><p>Choose the traditional inputs, then let the application add secure randomness.</p></div>
+            <div class="lock-orb"><i class="bi bi-shield-lock"></i></div>
+          </div>
+          <div class="row g-4">
+            <div class="col-lg-5">
+              <label class="form-label">Sanskrit-inspired word</label>
+              <select id="word" class="form-select">
+                {% for word, meaning in sanskrit_words.items() %}
+                <option value="{{ word }}">{{ word.title() }} — {{ meaning }}</option>
+                {% endfor %}
+              </select>
+
+              <label class="form-label mt-4">Bhuta Sankhya concept</label>
+              <select id="bhuta" class="form-select">
+                {% for name, value in bhuta_sankhya.items() %}
+                <option value="{{ name }}">{{ name }} → {{ value }}</option>
+                {% endfor %}
+              </select>
+
+              <label class="form-label mt-4">Password length <span id="lengthValue">16</span></label>
+              <input id="length" type="range" min="8" max="32" value="16" class="form-range">
+
+              <button id="generateBtn" class="btn btn-gold btn-lg w-100 mt-4">
+                <i class="bi bi-magic"></i> Generate Secure Password
+              </button>
+            </div>
+
+            <div class="col-lg-7">
+              <div class="result-panel">
+                <div class="result-label">GENERATED PASSWORD</div>
+                <div class="password-box"><code id="password">Click Generate</code><button id="copyBtn" class="icon-btn" title="Copy"><i class="bi bi-copy"></i></button></div>
+                <div class="strength-row">
+                  <div><span>Strength</span><strong id="strength">—</strong></div>
+                  <div class="strength-meter"><span id="meter"></span></div>
+                </div>
+                <div class="row g-3 mt-2">
+                  <div class="col-sm-6"><div class="mini-result"><small>KATAPAYADI</small><b id="kat">—</b></div></div>
+                  <div class="col-sm-6"><div class="mini-result"><small>BHUTA SANKHYA</small><b id="bhutaResult">—</b></div></div>
+                </div>
+                <div class="checks mt-4" id="checks"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-box reveal mt-4">
+          <div class="eyebrow">IMPORTANT EXAMPLE</div>
+          <h3>Agni + Vedas → traditional input + secure randomness</h3>
+          <p>For example, <b>Agni</b> is selected as the Sanskrit-inspired word and <b>Vedas → 4</b> supplies a Bhuta Sankhya value. The Katapayadi step produces a numerical component. The final password is then shuffled and strengthened with unpredictable characters from Python's <code>secrets</code> module.</p>
+          <div class="example-flow"><span>AGNI</span><i>+</i><span>Katapayadi digits</span><i>+</i><span>Vedas = 4</span><i>+</i><span>secrets</span><i>→</i><strong>STRONG PASSWORD</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="security" class="section section-dark">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 reveal">
+        <div class="eyebrow">SECURITY PRINCIPLE</div>
+        <h2>Ancient inspiration. Modern unpredictability.</h2>
+        <p class="lead-muted">The educational mapping makes the project relevant to the Ancient Knowledge Systems topic. It is the cryptographically secure random generation that prevents the final password from being a predictable transformation of a known word.</p>
+        <div class="security-list">
+          <div><i class="bi bi-check-circle"></i><span><b>Python Flask</b> handles the web backend.</span></div>
+          <div><i class="bi bi-check-circle"></i><span><b>HTML + CSS + Bootstrap</b> provide the interface.</span></div>
+          <div><i class="bi bi-check-circle"></i><span><b>secrets</b> provides security-oriented randomness.</span></div>
+          <div><i class="bi bi-check-circle"></i><span><b>Strength checks</b> evaluate length and character variety.</span></div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal delay-1"><img class="security-image" src="{{ url_for('static', filename='images/security.svg') }}" alt="Modern digital lock with ancient pattern"></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+    <span>Ancient Knowledge System Inspired Secure Password Generator</span>
+    <span>Python • Flask • HTML • CSS • Bootstrap</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 380">
+<rect x="50" y="45" width="520" height="290" rx="26" fill="#f8f1df" stroke="#8f6b30" stroke-width="3"/>
+<text x="310" y="95" text-anchor="middle" font-size="26" font-family="Arial" font-weight="700" fill="#403829">KATAPAYADI</text>
+<g font-family="Georgia" font-size="28" fill="#403829" text-anchor="middle">
+<text x="140" y="150">Ka</text><text x="240" y="150">Kha</text><text x="340" y="150">Ga</text><text x="440" y="150">Gha</text>
+<text x="140" y="195">1</text><text x="240" y="195">2</text><text x="340" y="195">3</text><text x="440" y="195">4</text>
+</g>
+<path d="M115 220h390" stroke="#b69a67" stroke-width="2"/>
+<text x="310" y="275" text-anchor="middle" font-size="20" font-family="Arial" fill="#8f6b30">consonants → digits</text>
+<text x="310" y="310" text-anchor="middle" font-size="17" font-family="Arial" fill="#6c6355">educational transliteration demo</text>
+</svg>

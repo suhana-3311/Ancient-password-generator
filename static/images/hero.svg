@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 620">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f0c86b"/><stop offset="1" stop-color="#8c6421"/></linearGradient></defs>
+<circle cx="310" cy="310" r="250" fill="#121923" stroke="#d6a84f" stroke-opacity=".4" stroke-width="2"/>
+<circle cx="310" cy="310" r="205" fill="none" stroke="#d6a84f" stroke-opacity=".22" stroke-dasharray="5 12"/>
+<path d="M205 235h210v170H205z" rx="15" fill="#e9dcc1" opacity=".96"/>
+<path d="M225 255h170M225 285h145M225 315h160M225 345h120" stroke="#4b3b22" stroke-width="8" stroke-linecap="round" opacity=".55"/>
+<text x="310" y="388" text-anchor="middle" font-size="55" font-family="Georgia" fill="#9b6e19">ॐ</text>
+<path d="M225 405h170" stroke="#d6a84f" stroke-width="5"/>
+<rect x="245" y="425" width="130" height="105" rx="18" fill="#0a0d12" stroke="#d6a84f" stroke-width="4"/>
+<path d="M272 425v-22c0-22 17-40 38-40s38 18 38 40v22" fill="none" stroke="#d6a84f" stroke-width="12"/>
+<circle cx="310" cy="470" r="12" fill="#d6a84f"/><path d="M310 470v28" stroke="#d6a84f" stroke-width="8"/>
+<circle cx="310" cy="310" r="286" fill="none" stroke="url(#g)" stroke-opacity=".12" stroke-width="2"/>
+</svg>
